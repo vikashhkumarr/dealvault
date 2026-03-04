@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submit Deal — DealVault</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<header class="header"><div class="container nav"><a class="logo" href="/">Deal<span>Vault</span></a></div></header>
+<main class="container layout">
+  <section class="panel" style="max-width:760px; margin:0 auto">
+    <h1>Submit a Deal</h1>
+    <p id="authHint" class="small" style="margin:8px 0 14px"></p>
+    <form id="submitForm" class="form-grid">
+      <div class="two-col">
+        <input class="input" name="title" placeholder="Deal title" required />
+        <input class="input" name="brand" placeholder="Brand name" required />
+      </div>
+      <div class="two-col">
+        <input class="input" name="coupon" placeholder="Coupon code" />
+        <input class="input" name="discount" placeholder="Discount (e.g. 30% OFF)" />
+      </div>
+      <input class="input" type="url" name="referralLink" placeholder="Referral link" required />
+      <div class="two-col">
+        <select id="category" name="category" required><option value="">Choose category</option></select>
+        <input class="input" type="date" name="expiresAt" />
+      </div>
+      <textarea class="input" rows="5" name="description" placeholder="Description"></textarea>
+      <button class="btn btn-primary" type="submit">Submit for Review</button>
+      <p id="submitMsg" class="copy-feedback"></p>
+    </form>
+  </section>
+</main>
+<script type="module" src="/js/submit.js"></script>
+</body>
+</html>

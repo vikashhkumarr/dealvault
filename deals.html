@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browse Deals — DealVault</title>
+  <meta name="description" content="Browse all approved coupons and referral offers." />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<header class="header"><div class="container nav"><a class="logo" href="/">Deal<span>Vault</span></a><nav class="nav-links"><a href="/deals.html">Browse</a><a href="/submit.html">Submit</a><a href="/login.html">Login</a></nav></div></header>
+<main class="container layout sidebar-layout">
+  <aside class="panel form-grid">
+    <h3>Filters</h3>
+    <input id="search" class="input" placeholder="Search deals" />
+    <select id="category"><option value="">All categories</option></select>
+    <select id="brand"><option value="">All brands</option></select>
+    <select id="sort">
+      <option value="trending">Trending</option>
+      <option value="newest">Newest</option>
+      <option value="popular">Most Popular</option>
+    </select>
+  </aside>
+
+  <section>
+    <div class="section-head">
+      <h2>All Deals</h2>
+      <div>
+        <button id="prevPage" class="btn btn-outline">Prev</button>
+        <button id="nextPage" class="btn btn-outline">Next</button>
+        <span id="pageInfo" class="small"></span>
+      </div>
+    </div>
+    <div id="browseDeals" class="grid"></div>
+  </section>
+</main>
+<script type="module" src="/js/browse.js"></script>
+</body>
+</html>
