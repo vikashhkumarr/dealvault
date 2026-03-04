@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
 <title>DealVault</title>
 
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -15,7 +16,66 @@
 <div id="deals"></div>
 
 
-<script type="module" src="js/deals.js"></script>
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC48oL4RCxONkat4DTKVjparBkbJgdHJpo",
+  authDomain: "coupon-app-39c05.firebaseapp.com",
+  projectId: "coupon-app-39c05",
+  storageBucket: "coupon-app-39c05.firebasestorage.app",
+  messagingSenderId: "1021067457486",
+  appId: "1:1021067457486:web:63bab0b651c77f5184719f"
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+
+const dealsContainer = document.getElementById("deals");
+
+
+async function loadDeals(){
+
+const snapshot = await getDocs(collection(db,"deals"));
+
+snapshot.forEach((doc)=>{
+
+const deal = doc.data();
+
+const card = `
+
+<div style="background:#f3f3f3;padding:20px;margin:20px;border-radius:10px;">
+
+<h3>${deal.title}</h3>
+
+<p>${deal.brand}</p>
+
+<button onclick="window.open('${deal.referral}')">
+
+Get Deal
+
+</button>
+
+</div>
+
+`;
+
+dealsContainer.innerHTML += card;
+
+});
+
+}
+
+loadDeals();
+
+</script>
 
 </body>
+
 </html>
