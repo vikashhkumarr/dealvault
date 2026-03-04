@@ -11,18 +11,56 @@
 
 <style>
 
-body{
+*{
+box-sizing:border-box;
 margin:0;
-font-family:Arial, Helvetica, sans-serif;
+padding:0;
+font-family:Inter, Arial;
+}
+
+body{
 background:#0f172a;
 color:white;
 padding:40px;
 }
 
-h1{
-font-size:32px;
-margin-bottom:30px;
+/* HEADER */
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:40px;
 }
+
+.logo{
+font-size:28px;
+font-weight:bold;
+}
+
+/* SEARCH BAR */
+
+.search-bar{
+margin-bottom:30px;
+display:flex;
+gap:10px;
+}
+
+.search-bar input{
+flex:1;
+padding:12px;
+border-radius:8px;
+border:none;
+outline:none;
+}
+
+.search-bar select{
+padding:12px;
+border-radius:8px;
+border:none;
+}
+
+/* GRID */
 
 #deals{
 display:grid;
@@ -30,34 +68,36 @@ grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:20px;
 }
 
+/* DEAL CARD */
+
 .deal-card{
 background:#1e293b;
 padding:25px;
-border-radius:12px;
+border-radius:14px;
 transition:0.3s;
-box-shadow:0 10px 25px rgba(0,0,0,0.4);
+box-shadow:0 8px 25px rgba(0,0,0,0.4);
 }
 
 .deal-card:hover{
-transform:translateY(-5px);
-box-shadow:0 15px 35px rgba(0,0,0,0.5);
+transform:translateY(-6px);
+box-shadow:0 12px 35px rgba(0,0,0,0.6);
 }
 
 .deal-title{
 font-size:20px;
 font-weight:bold;
-margin-bottom:5px;
+margin-bottom:6px;
 }
 
 .deal-brand{
 color:#94a3b8;
-margin-bottom:20px;
+margin-bottom:15px;
 }
 
 button{
 background:#7c3aed;
 border:none;
-padding:12px 20px;
+padding:10px 18px;
 border-radius:8px;
 color:white;
 font-weight:bold;
@@ -68,15 +108,46 @@ button:hover{
 background:#6d28d9;
 }
 
+/* FOOTER */
+
+.footer{
+margin-top:60px;
+text-align:center;
+color:#94a3b8;
+}
+
 </style>
 
 </head>
 
 <body>
 
-<h1>🔥 All Deals</h1>
+<div class="header">
+
+<div class="logo">🔥 DealVault</div>
+
+</div>
+
+<h1>All Deals</h1>
+
+<div class="search-bar">
+
+<input id="search" placeholder="Search deals...">
+
+<select>
+<option>All Categories</option>
+<option>Hosting</option>
+<option>AI Tools</option>
+<option>Software</option>
+</select>
+
+</div>
 
 <div id="deals"></div>
+
+<div class="footer">
+© 2026 DealVault
+</div>
 
 <script type="module">
 
@@ -86,12 +157,14 @@ import { getFirestore, collection, getDocs } from "https://www.gstatic.com/fireb
 
 
 const firebaseConfig = {
+
 apiKey: "AIzaSyC48oL4RCxONkat4DTKVjparBkbJgdHJpo",
 authDomain: "coupon-app-39c05.firebaseapp.com",
 projectId: "coupon-app-39c05",
 storageBucket: "coupon-app-39c05.firebasestorage.app",
 messagingSenderId: "1021067457486",
 appId: "1:1021067457486:web:63bab0b651c77f5184719f"
+
 };
 
 
@@ -99,7 +172,6 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const dealsContainer = document.getElementById("deals");
-
 
 async function loadDeals(){
 
@@ -138,5 +210,4 @@ loadDeals();
 </script>
 
 </body>
-
 </html>
