@@ -4,40 +4,5 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Submit Deal — DealVault</title>
-  <meta name="description" content="Submit coupon or referral deals for moderation." />
-  <link rel="stylesheet" href="/style.css" />
-</head>
-<body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="logo" href="/">Deal<span>Vault</span></a>
-      <nav class="nav-links">
-        <a class="btn btn-ghost" href="/browse">Browse</a>
-        <a class="btn btn-primary" href="/login.html">Login</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container section">
-    <article class="panel">
-      <h1>Submit a Deal</h1>
-      <p style="color:var(--muted);margin-top:8px">All submissions are saved as <strong>pending</strong> until approved by an admin.</p>
-
-      <form id="submitForm" class="form-grid" style="margin-top:18px">
-        <input class="input" name="title" placeholder="Deal title" required />
-        <input class="input" name="brand" placeholder="Brand name" required />
-        <input class="input" name="discount" placeholder="Discount (e.g., 80% OFF)" required />
-        <input class="input" name="coupon" placeholder="Coupon code" />
-        <input class="input full" name="referralLink" type="url" placeholder="Referral link" required />
-        <select id="category" class="select" name="category"></select>
-        <input class="input" name="expiresAt" type="date" />
-        <textarea class="textarea full" name="description" placeholder="Describe the deal" required></textarea>
-        <button class="btn btn-primary full" type="submit">Submit Deal</button>
-      </form>
-      <p id="submitStatus" style="margin-top:12px;color:var(--muted)"></p>
-    </article>
-  </main>
-
-  <script type="module" src="/submit.js"></script>
 </body>
 </html>

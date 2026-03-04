@@ -3,43 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deal Detail — DealVault</title>
-  <meta name="description" content="Read full coupon and referral deal details." />
-  <link rel="stylesheet" href="/style.css" />
-  <script id="couponSchema" type="application/ld+json">{}</script>
-</head>
-<body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="logo" href="/">Deal<span>Vault</span></a>
-      <nav class="nav-links">
-        <a class="btn btn-ghost" href="/browse">Back to Browse</a>
-      </nav>
-    </div>
-  </header>
 
-  <main class="container section">
-    <div class="page-grid">
-      <article class="panel">
-        <h1 id="dealTitle">Loading deal...</h1>
-        <p id="dealBrand" class="deal-brand"></p>
-        <div id="dealDiscount" class="deal-discount"></div>
-        <p id="dealExpires" class="deal-expire"></p>
-        <p id="dealDescription" style="margin-top:18px;color:var(--muted);line-height:1.7"></p>
-        <div class="deal-actions">
-          <button id="copyCoupon" class="btn btn-primary">Copy Coupon</button>
-          <button id="goReferral" class="btn btn-ghost">Get Deal</button>
-        </div>
-        <small id="dealToast" class="toast"></small>
-      </article>
-      <aside class="panel">
-        <h3>Related actions</h3>
-        <p style="color:var(--muted);margin-top:10px;line-height:1.6">Use coupon copy for quick checkout, then open referral link to redeem deal.</p>
-        <a class="btn btn-ghost" style="margin-top:16px;display:inline-flex" href="/submit">Submit your own deal</a>
-      </aside>
-    </div>
-  </main>
-
-  <script type="module" src="/deal.js"></script>
 </body>
 </html>

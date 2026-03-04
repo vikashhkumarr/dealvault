@@ -1,58 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DealVault — Coupons, Discount Codes & Referral Deals</title>
-  <meta name="description" content="Discover and share coupons, discount codes, and referral links on DealVault." />
-  <meta property="og:title" content="DealVault" />
-  <meta property="og:description" content="Modern coupon and referral sharing platform." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://dealvault.vercel.app" />
-  <link rel="stylesheet" href="/style.css" />
-  <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebSite","name":"DealVault","url":"https://dealvault.vercel.app","potentialAction":{"@type":"SearchAction","target":"https://dealvault.vercel.app/browse?search={search_term_string}","query-input":"required name=search_term_string"}}
-  </script>
-</head>
-<body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="logo" href="/">Deal<span>Vault</span></a>
-      <nav class="nav-links">
-        <a class="btn btn-ghost" href="/browse">Browse</a>
-        <a class="btn btn-ghost" href="/submit">Submit Deal</a>
-        <a class="btn btn-primary" href="/login.html">Login</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="hero">
-      <h1>Never pay <span>full price</span> again.</h1>
-      <p>Discover premium discount codes and referral deals shared by the community.</p>
-      <form class="search-bar" action="/browse" method="get">
-        <input name="search" placeholder="Search by title, brand, or category" />
-        <button class="btn btn-primary" type="submit">Search Deals</button>
-      </form>
-    </section>
-
-    <section class="section">
-      <div class="section-header">
-        <div>
-          <h2>Trending Deals</h2>
-          <p>Smart ranking powered by clicks, recency, and engagement.</p>
-        </div>
-        <a href="/browse" class="btn btn-ghost">View All</a>
-      </div>
-      <div id="deals" class="deals-grid"></div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container">© <span id="year"></span> DealVault · Built for fast discovery and sharing.</div>
-  </footer>
-
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  <script type="module" src="/deals.js"></script>
 </body>
 </html>

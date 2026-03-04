@@ -4,49 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin Dashboard — DealVault</title>
-  <meta name="description" content="Moderate submitted deals and view analytics." />
-  <link rel="stylesheet" href="/style.css" />
-</head>
-<body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="logo" href="/">Deal<span>Vault</span></a>
-      <nav class="nav-links">
-        <a class="btn btn-ghost" href="/browse">Browse</a>
-        <a class="btn btn-ghost" href="/submit">Submit</a>
-        <a class="btn btn-danger" href="/login.html">Account</a>
-      </nav>
-    </div>
-  </header>
 
-  <main class="container section">
-    <p id="adminGate" class="panel">Checking admin access...</p>
-
-    <section id="adminPanel" class="hidden">
-      <div class="stats">
-        <article class="stat-card"><h3>Pending</h3><p id="pendingCount">0</p></article>
-        <article class="stat-card"><h3>Approved</h3><p id="approvedCount">0</p></article>
-        <article class="stat-card"><h3>Total Clicks</h3><p id="clickCount">0</p></article>
-      </div>
-
-      <article class="panel">
-        <h2>Submitted Deals</h2>
-        <table class="table" style="margin-top:14px">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Brand</th>
-              <th>Status</th>
-              <th>Clicks</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="adminDeals"></tbody>
-        </table>
-      </article>
-    </section>
-  </main>
-
-  <script type="module" src="/admin.js"></script>
 </body>
 </html>

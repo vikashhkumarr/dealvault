@@ -3,51 +3,5 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login — DealVault</title>
-  <meta name="description" content="Login, signup, or reset password for DealVault." />
-  <link rel="stylesheet" href="/style.css" />
-</head>
-<body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="logo" href="/">Deal<span>Vault</span></a>
-      <nav class="nav-links">
-        <span id="userChip" class="btn btn-ghost">Guest</span>
-        <button data-logout class="btn btn-danger">Logout</button>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container section">
-    <div class="page-grid">
-      <article class="panel">
-        <h2>Login</h2>
-        <form id="loginForm" class="form-grid" style="margin-top:14px">
-          <input class="input full" name="email" type="email" placeholder="Email" required />
-          <input class="input full" name="password" type="password" placeholder="Password" required />
-          <button class="btn btn-primary full" type="submit">Login</button>
-        </form>
-      </article>
-
-      <article class="panel">
-        <h2>Create account</h2>
-        <form id="signupForm" class="form-grid" style="margin-top:14px">
-          <input class="input full" name="email" type="email" placeholder="Email" required />
-          <input class="input full" name="password" type="password" placeholder="Password" minlength="6" required />
-          <button class="btn btn-ghost full" type="submit">Signup</button>
-        </form>
-
-        <h3 style="margin-top:20px">Reset password</h3>
-        <form id="resetForm" class="form-grid" style="margin-top:10px">
-          <input class="input full" name="email" type="email" placeholder="Email" required />
-          <button class="btn btn-ghost full" type="submit">Send reset link</button>
-        </form>
-
-        <p id="authStatus" style="margin-top:12px;color:var(--muted)"></p>
-      </article>
-    </div>
-  </main>
-
-  <script type="module" src="/auth.js"></script>
 </body>
 </html>
