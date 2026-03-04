@@ -1,26 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
-<title>Admin Panel</title>
-
-<link rel="stylesheet" href="css/style.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — DealVault</title>
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
-
 <body>
+<header class="header"><div class="container nav"><a class="logo" href="/">Deal<span>Vault</span></a></div></header>
+<main class="container layout">
+  <p id="adminGate" class="panel">Checking admin access...</p>
 
-<h1>Add New Deal</h1>
+  <section id="adminApp" class="hidden">
+    <div class="kpis">
+      <div class="kpi"><span class="small">Pending</span><strong id="kpiPending">0</strong></div>
+      <div class="kpi"><span class="small">Approved</span><strong id="kpiApproved">0</strong></div>
+      <div class="kpi"><span class="small">Clicks</span><strong id="kpiClicks">0</strong></div>
+      <div class="kpi"><span class="small">Coupon Copies</span><strong id="kpiCopies">0</strong></div>
+    </div>
 
-<input id="title" placeholder="Deal Title">
-<input id="brand" placeholder="Brand Name">
-<input id="coupon" placeholder="Coupon Code">
-<input id="referral" placeholder="Referral Link">
-
-<button onclick="addDeal()">Add Deal</button>
-
-
-<script type="module" src="js/admin.js"></script>
-
+    <section class="panel">
+      <h2>Pending Submissions</h2>
+      <table class="table">
+        <thead><tr><th>Title</th><th>Brand</th><th>Category</th><th>Actions</th></tr></thead>
+        <tbody id="pendingRows"></tbody>
+      </table>
+    </section>
+  </section>
+</main>
+<script type="module" src="/js/admin.js"></script>
 </body>
 </html>
