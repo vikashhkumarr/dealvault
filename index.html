@@ -1,285 +1,58 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>DealVault</title>
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Inter,Arial;
-}
-
-body{
-background:#050816;
-color:white;
-}
-
-/* HEADER */
-
-.header{
-padding:25px 60px;
-border-bottom:1px solid #1e293b;
-}
-
-.logo{
-font-size:20px;
-font-weight:600;
-}
-
-/* HERO */
-
-.hero{
-text-align:center;
-padding:120px 20px;
-background:radial-gradient(circle at center,#0f172a,#020617);
-}
-
-.hero h1{
-font-size:64px;
-font-weight:800;
-margin-bottom:20px;
-}
-
-.hero span{
-color:#6366f1;
-}
-
-.hero p{
-max-width:650px;
-margin:auto;
-color:#9ca3af;
-font-size:18px;
-line-height:1.6;
-}
-
-/* SECTION */
-
-.section{
-padding:80px 60px;
-}
-
-.section-header{
-display:flex;
-justify-content:space-between;
-margin-bottom:40px;
-}
-
-.section-header h2{
-font-size:32px;
-}
-
-.section-header span{
-color:#60a5fa;
-}
-
-/* DEAL GRID */
-
-.deals{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:25px;
-}
-
-/* CARD */
-
-.card{
-background:#0f172a;
-border:1px solid #1e293b;
-border-radius:18px;
-padding:30px;
-position:relative;
-min-height:150px;
-}
-
-.card.large{
-grid-column:span 2;
-}
-
-.title{
-font-size:18px;
-font-weight:600;
-}
-
-.brand{
-color:#9ca3af;
-margin-top:6px;
-}
-
-.discount{
-color:#6366f1;
-font-size:36px;
-margin:14px 0;
-font-weight:bold;
-}
-
-.expire{
-color:#9ca3af;
-font-size:14px;
-}
-
-.trending{
-position:absolute;
-top:20px;
-right:20px;
-background:#1f2937;
-padding:6px 12px;
-border-radius:20px;
-font-size:12px;
-color:#facc15;
-}
-
-/* BUTTONS */
-
-.copy{
-position:absolute;
-bottom:20px;
-right:20px;
-background:#6366f1;
-border:none;
-padding:10px 16px;
-border-radius:8px;
-color:white;
-cursor:pointer;
-}
-
-.get{
-position:absolute;
-bottom:20px;
-right:20px;
-background:#1f2937;
-border:none;
-padding:10px 16px;
-border-radius:8px;
-color:white;
-cursor:pointer;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.hero h1{
-font-size:40px;
-}
-
-.deals{
-grid-template-columns:1fr;
-}
-
-}
-
-</style>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DealVault — Coupons, Discount Codes & Referral Deals</title>
+  <meta name="description" content="Discover and share coupons, discount codes, and referral links on DealVault." />
+  <meta property="og:title" content="DealVault" />
+  <meta property="og:description" content="Modern coupon and referral sharing platform." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dealvault.vercel.app" />
+  <link rel="stylesheet" href="/style.css" />
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebSite","name":"DealVault","url":"https://dealvault.vercel.app","potentialAction":{"@type":"SearchAction","target":"https://dealvault.vercel.app/browse?search={search_term_string}","query-input":"required name=search_term_string"}}
+  </script>
 </head>
-
 <body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="/">Deal<span>Vault</span></a>
+      <nav class="nav-links">
+        <a class="btn btn-ghost" href="/browse">Browse</a>
+        <a class="btn btn-ghost" href="/submit">Submit Deal</a>
+        <a class="btn btn-primary" href="/login.html">Login</a>
+      </nav>
+    </div>
+  </header>
 
-<!-- HEADER -->
+  <main class="container">
+    <section class="hero">
+      <h1>Never pay <span>full price</span> again.</h1>
+      <p>Discover premium discount codes and referral deals shared by the community.</p>
+      <form class="search-bar" action="/browse" method="get">
+        <input name="search" placeholder="Search by title, brand, or category" />
+        <button class="btn btn-primary" type="submit">Search Deals</button>
+      </form>
+    </section>
 
-<div class="header">
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2>Trending Deals</h2>
+          <p>Smart ranking powered by clicks, recency, and engagement.</p>
+        </div>
+        <a href="/browse" class="btn btn-ghost">View All</a>
+      </div>
+      <div id="deals" class="deals-grid"></div>
+    </section>
+  </main>
 
-<div class="logo">DealVault</div>
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> DealVault · Built for fast discovery and sharing.</div>
+  </footer>
 
-</div>
-
-<!-- HERO -->
-
-<div class="hero">
-
-<h1>Never pay <span>full price</span> again.</h1>
-
-<p>
-Discover premium discount codes and referral deals shared by the community.
-</p>
-
-</div>
-
-<!-- TRENDING DEALS -->
-
-<div class="section">
-
-<div class="section-header">
-
-<h2>Trending Deals</h2>
-
-<span>View All →</span>
-
-</div>
-
-<div id="deals" class="deals">
-
-</div>
-
-</div>
-
-<!-- FIREBASE SCRIPT -->
-
-<script type="module">
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-const firebaseConfig = {
-
-apiKey: "AIzaSyC48oL4RCxONkat4DTKVjparBkbJgdHJpo",
-authDomain: "coupon-app-39c05.firebaseapp.com",
-projectId: "coupon-app-39c05",
-storageBucket: "coupon-app-39c05.firebasestorage.app",
-messagingSenderId: "1021067457486",
-appId: "1:1021067457486:web:63bab0b651c77f5184719f"
-
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-const dealsContainer = document.getElementById("deals");
-
-async function loadDeals(){
-
-const snapshot = await getDocs(collection(db,"deals"));
-
-snapshot.forEach((doc)=>{
-
-const deal = doc.data();
-
-const card = `
-
-<div class="card">
-
-<div class="title">${deal.title}</div>
-<div class="brand">${deal.brand}</div>
-
-<div class="discount">${deal.discount}</div>
-
-<div class="expire">${deal.expire}</div>
-
-<button class="copy" onclick="navigator.clipboard.writeText('${deal.coupon}')">
-Copy Code
-</button>
-
-</div>
-
-`;
-
-dealsContainer.innerHTML += card;
-
-});
-
-}
-
-loadDeals();
-
-</script>
-
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script type="module" src="/deals.js"></script>
 </body>
 </html>

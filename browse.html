@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browse Deals — DealVault</title>
+  <meta name="description" content="Browse all coupons, discount codes, and referral deals on DealVault." />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="/">Deal<span>Vault</span></a>
+      <nav class="nav-links">
+        <a class="btn btn-ghost" href="/submit">Submit</a>
+        <a class="btn btn-primary" href="/login.html">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section">
+    <div class="section-header">
+      <div>
+        <h1>Browse Deals</h1>
+        <p>Filter by category, brand, and popularity intent.</p>
+      </div>
+    </div>
+
+    <div class="filters">
+      <input id="searchInput" class="input" placeholder="Search title, brand, category" />
+      <select id="categoryFilter" class="select"></select>
+      <input id="brandFilter" class="input" placeholder="Brand" />
+    </div>
+
+    <div id="dealsGrid" class="deals-grid"></div>
+  </main>
+
+  <script type="module" src="/deals.js"></script>
+</body>
+</html>
