@@ -18,35 +18,20 @@ font-family:Inter, Arial;
 }
 
 body{
-background:#070b16;
+background:#050816;
 color:white;
 }
 
-/* NAVBAR */
+/* HEADER */
 
-.navbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 60px;
+.header{
+padding:25px 60px;
 border-bottom:1px solid #1e293b;
 }
 
 .logo{
 font-size:20px;
-font-weight:bold;
-}
-
-.nav-links{
-display:flex;
-gap:30px;
-color:#9ca3af;
-}
-
-.login{
-background:#6366f1;
-padding:10px 18px;
-border-radius:8px;
+font-weight:600;
 }
 
 /* HERO */
@@ -54,7 +39,7 @@ border-radius:8px;
 .hero{
 text-align:center;
 padding:120px 20px;
-background:radial-gradient(circle at center,#111827,#020617);
+background:radial-gradient(circle at center,#0f172a,#020617);
 }
 
 .hero h1{
@@ -75,30 +60,6 @@ font-size:18px;
 line-height:1.6;
 }
 
-.hero-buttons{
-margin-top:40px;
-display:flex;
-justify-content:center;
-gap:20px;
-}
-
-.btn{
-padding:14px 26px;
-border-radius:10px;
-border:none;
-font-weight:bold;
-cursor:pointer;
-}
-
-.primary{
-background:#6366f1;
-}
-
-.secondary{
-background:#1f2937;
-color:white;
-}
-
 /* SECTION */
 
 .section{
@@ -117,7 +78,6 @@ font-size:32px;
 
 .section-header span{
 color:#60a5fa;
-cursor:pointer;
 }
 
 /* DEAL GRID */
@@ -128,7 +88,7 @@ grid-template-columns:repeat(2,1fr);
 gap:25px;
 }
 
-/* DEAL CARD */
+/* DEAL CARD STRUCTURE */
 
 .card{
 background:#0f172a;
@@ -136,47 +96,24 @@ border:1px solid #1e293b;
 border-radius:16px;
 padding:30px;
 position:relative;
+min-height:140px;
 }
 
 .card.large{
 grid-column:span 2;
 }
 
-.brand{
-color:#9ca3af;
-margin-top:4px;
-}
-
 .discount{
 color:#6366f1;
 font-size:36px;
-margin:15px 0;
+margin-top:10px;
 font-weight:bold;
 }
 
-.expire{
-color:#9ca3af;
-font-size:14px;
-}
-
-.trending{
-position:absolute;
-top:20px;
-right:20px;
-background:#1f2937;
-padding:6px 12px;
-border-radius:20px;
-font-size:12px;
-color:#facc15;
-}
-
-.actions{
+.copy{
 position:absolute;
 bottom:20px;
 right:20px;
-}
-
-.copy{
 background:#6366f1;
 border:none;
 padding:10px 16px;
@@ -186,6 +123,9 @@ cursor:pointer;
 }
 
 .get{
+position:absolute;
+bottom:20px;
+right:20px;
 background:#1f2937;
 border:none;
 padding:10px 16px;
@@ -194,26 +134,31 @@ color:white;
 cursor:pointer;
 }
 
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.hero h1{
+font-size:42px;
+}
+
+.deals{
+grid-template-columns:1fr;
+}
+
+}
+
 </style>
 
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- HEADER -->
 
-<div class="navbar">
+<div class="header">
 
-<div class="logo">CouponBento</div>
-
-<div class="nav-links">
-<div>Home</div>
-<div>Browse Deals</div>
-<div>My Deals</div>
-<div>Submit Deal</div>
-</div>
-
-<div class="login">Login</div>
+<div class="logo">DealVault</div>
 
 </div>
 
@@ -224,17 +169,8 @@ cursor:pointer;
 <h1>Never pay <span>full price</span> again.</h1>
 
 <p>
-Discover premium discount codes, referral links, and exclusive deals shared by our community.
-Fast, simple, and always verified.
+Discover discount codes, referral links, and exclusive deals shared by the community.
 </p>
-
-<div class="hero-buttons">
-
-<button class="btn primary">Browse Deals</button>
-
-<button class="btn secondary">Submit a Deal</button>
-
-</div>
 
 </div>
 
@@ -250,69 +186,9 @@ Fast, simple, and always verified.
 
 </div>
 
-<div class="deals">
+<!-- FIREBASE DEALS WILL LOAD HERE -->
 
-<div class="card large">
-
-<div class="trending">TRENDING</div>
-
-<h3>50% Off Cloud Hosting</h3>
-<div class="brand">DigitalOcean</div>
-
-<div class="discount">50% OFF</div>
-
-<div class="expire">Expires Tomorrow</div>
-
-<div class="actions">
-<button class="copy">Copy Code</button>
-</div>
-
-</div>
-
-<div class="card">
-
-<div class="trending">TRENDING</div>
-
-<h3>Get $200 Sign Up Bonus</h3>
-<div class="brand">Chase</div>
-
-<div class="discount">$200</div>
-
-<div class="actions">
-<button class="get">Get Deal</button>
-</div>
-
-</div>
-
-<div class="card">
-
-<h3>Free Pro Month</h3>
-<div class="brand">Figma</div>
-
-<div class="discount">100% OFF</div>
-
-<div class="expire">Expires in 3 days</div>
-
-<div class="actions">
-<button class="copy">Copy Code</button>
-</div>
-
-</div>
-
-<div class="card">
-
-<h3>3 Months Free Music</h3>
-<div class="brand">Spotify</div>
-
-<div class="discount">FREE</div>
-
-<div class="expire">Expires Dec 31</div>
-
-<div class="actions">
-<button class="get">Get Deal</button>
-</div>
-
-</div>
+<div id="deals" class="deals">
 
 </div>
 
