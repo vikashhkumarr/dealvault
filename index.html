@@ -1,11 +1,74 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
 
 <head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>DealVault</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#0f172a;
+color:white;
+padding:40px;
+}
+
+h1{
+font-size:32px;
+margin-bottom:30px;
+}
+
+#deals{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+
+.deal-card{
+background:#1e293b;
+padding:25px;
+border-radius:12px;
+transition:0.3s;
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+.deal-card:hover{
+transform:translateY(-5px);
+box-shadow:0 15px 35px rgba(0,0,0,0.5);
+}
+
+.deal-title{
+font-size:20px;
+font-weight:bold;
+margin-bottom:5px;
+}
+
+.deal-brand{
+color:#94a3b8;
+margin-bottom:20px;
+}
+
+button{
+background:#7c3aed;
+border:none;
+padding:12px 20px;
+border-radius:8px;
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+background:#6d28d9;
+}
+
+</style>
 
 </head>
 
@@ -15,27 +78,25 @@
 
 <div id="deals"></div>
 
-
 <script type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC48oL4RCxONkat4DTKVjparBkbJgdHJpo",
-  authDomain: "coupon-app-39c05.firebaseapp.com",
-  projectId: "coupon-app-39c05",
-  storageBucket: "coupon-app-39c05.firebasestorage.app",
-  messagingSenderId: "1021067457486",
-  appId: "1:1021067457486:web:63bab0b651c77f5184719f"
+apiKey: "AIzaSyC48oL4RCxONkat4DTKVjparBkbJgdHJpo",
+authDomain: "coupon-app-39c05.firebaseapp.com",
+projectId: "coupon-app-39c05",
+storageBucket: "coupon-app-39c05.firebasestorage.app",
+messagingSenderId: "1021067457486",
+appId: "1:1021067457486:web:63bab0b651c77f5184719f"
 };
 
 
 const app = initializeApp(firebaseConfig);
-
 const db = getFirestore(app);
-
 
 const dealsContainer = document.getElementById("deals");
 
@@ -50,11 +111,11 @@ const deal = doc.data();
 
 const card = `
 
-<div style="background:#f3f3f3;padding:20px;margin:20px;border-radius:10px;">
+<div class="deal-card">
 
-<h3>${deal.title}</h3>
+<div class="deal-title">${deal.title}</div>
 
-<p>${deal.brand}</p>
+<div class="deal-brand">${deal.brand}</div>
 
 <button onclick="window.open('${deal.referral}')">
 
