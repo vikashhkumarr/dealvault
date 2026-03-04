@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -14,7 +15,7 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Inter, Arial;
+font-family:Inter,Arial;
 }
 
 body{
@@ -69,7 +70,7 @@ padding:80px 60px;
 .section-header{
 display:flex;
 justify-content:space-between;
-margin-bottom:30px;
+margin-bottom:40px;
 }
 
 .section-header h2{
@@ -88,27 +89,55 @@ grid-template-columns:repeat(2,1fr);
 gap:25px;
 }
 
-/* DEAL CARD STRUCTURE */
+/* CARD */
 
 .card{
 background:#0f172a;
 border:1px solid #1e293b;
-border-radius:16px;
+border-radius:18px;
 padding:30px;
 position:relative;
-min-height:140px;
+min-height:150px;
 }
 
 .card.large{
 grid-column:span 2;
 }
 
+.title{
+font-size:18px;
+font-weight:600;
+}
+
+.brand{
+color:#9ca3af;
+margin-top:6px;
+}
+
 .discount{
 color:#6366f1;
 font-size:36px;
-margin-top:10px;
+margin:14px 0;
 font-weight:bold;
 }
+
+.expire{
+color:#9ca3af;
+font-size:14px;
+}
+
+.trending{
+position:absolute;
+top:20px;
+right:20px;
+background:#1f2937;
+padding:6px 12px;
+border-radius:20px;
+font-size:12px;
+color:#facc15;
+}
+
+/* BUTTONS */
 
 .copy{
 position:absolute;
@@ -134,12 +163,12 @@ color:white;
 cursor:pointer;
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 
 @media(max-width:900px){
 
 .hero h1{
-font-size:42px;
+font-size:40px;
 }
 
 .deals{
@@ -169,7 +198,7 @@ grid-template-columns:1fr;
 <h1>Never pay <span>full price</span> again.</h1>
 
 <p>
-Discover discount codes, referral links, and exclusive deals shared by the community.
+Discover premium discount codes and referral deals shared by the community.
 </p>
 
 </div>
@@ -186,13 +215,71 @@ Discover discount codes, referral links, and exclusive deals shared by the commu
 
 </div>
 
-<!-- FIREBASE DEALS WILL LOAD HERE -->
-
 <div id="deals" class="deals">
 
 </div>
 
 </div>
+
+<!-- FIREBASE SCRIPT -->
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyC48oL4RCxONkat4DTKVjparBkbJgdHJpo",
+authDomain: "coupon-app-39c05.firebaseapp.com",
+projectId: "coupon-app-39c05",
+storageBucket: "coupon-app-39c05.firebasestorage.app",
+messagingSenderId: "1021067457486",
+appId: "1:1021067457486:web:63bab0b651c77f5184719f"
+
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const dealsContainer = document.getElementById("deals");
+
+async function loadDeals(){
+
+const snapshot = await getDocs(collection(db,"deals"));
+
+snapshot.forEach((doc)=>{
+
+const deal = doc.data();
+
+const card = `
+
+<div class="card">
+
+<div class="title">${deal.title}</div>
+<div class="brand">${deal.brand}</div>
+
+<div class="discount">${deal.discount}</div>
+
+<div class="expire">${deal.expire}</div>
+
+<button class="copy" onclick="navigator.clipboard.writeText('${deal.coupon}')">
+Copy Code
+</button>
+
+</div>
+
+`;
+
+dealsContainer.innerHTML += card;
+
+});
+
+}
+
+loadDeals();
+
+</script>
 
 </body>
 </html>
